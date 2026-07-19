@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Terminal, CornerDownLeft, Circle, Sparkles } from 'lucide-react';
+import { Terminal, CornerDownLeft, Circle } from 'lucide-react';
 
 interface CommandHistory {
   command: string;
@@ -160,10 +160,7 @@ export const TerminalHero: React.FC<TerminalHeroProps> = ({ onScrollToSection })
       <div className="bg-grid"></div>
       <div className="container" style={styles.container}>
         <div style={styles.headerArea}>
-          <div style={styles.badge}>
-            <Sparkles size={14} style={{ color: 'var(--accent-cyan)' }} />
-            <span>Interactive Portfolio</span>
-          </div>
+
           <h1 style={styles.mainTitle}>
             Hi, I'm <span className="gradient-text" style={styles.nameHighlight}>Arpit Vaghela</span>
           </h1>
@@ -202,7 +199,7 @@ export const TerminalHero: React.FC<TerminalHeroProps> = ({ onScrollToSection })
                 <div style={styles.terminalOutputLine}>{item.output}</div>
               </div>
             ))}
-            
+
             {/* Input Line */}
             <div style={styles.terminalPromptLine}>
               <span style={{ color: 'var(--accent-green)' }}>arpit-portfolio$</span>
