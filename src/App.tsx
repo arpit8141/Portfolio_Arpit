@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { TerminalHero } from './components/TerminalHero';
 import { SyncSimulator } from './components/SyncSimulator';
-import { ArchitectureVisualizer } from './components/ArchitectureVisualizer';
+import { ConsoleUtilitySimulator } from './components/ConsoleUtilitySimulator';
 import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['skills', 'experience', 'sync', 'architecture', 'contact'];
+      const sections = ['skills', 'experience', 'sync', 'console-tools', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       if (window.scrollY < 100) {
@@ -87,10 +87,10 @@ function App() {
               Sync Simulator
             </button>
             <button 
-              onClick={() => handleScrollToSection('architecture')} 
-              style={{...styles.navLink, color: activeSection === 'architecture' ? 'var(--accent-cyan)' : 'var(--text-secondary)'}}
+              onClick={() => handleScrollToSection('console-tools')} 
+              style={{...styles.navLink, color: activeSection === 'console-tools' ? 'var(--accent-cyan)' : 'var(--text-secondary)'}}
             >
-              Architecture
+              Console Tools
             </button>
             <button 
               onClick={() => handleScrollToSection('contact')} 
@@ -110,7 +110,7 @@ function App() {
       {/* Mobile Navigation Dropdown */}
       {mobileMenuOpen && (
         <div style={styles.mobileNavDropdown}>
-          {['home', 'skills', 'experience', 'sync', 'architecture', 'contact'].map((sec) => (
+          {['home', 'skills', 'experience', 'sync', 'console-tools', 'contact'].map((sec) => (
             <button
               key={sec}
               onClick={() => handleScrollToSection(sec)}
@@ -119,7 +119,7 @@ function App() {
                 color: activeSection === sec ? 'var(--accent-cyan)' : 'var(--text-secondary)',
               }}
             >
-              {sec.toUpperCase()}
+              {sec === 'console-tools' ? 'CONSOLE TOOLS' : sec.toUpperCase()}
             </button>
           ))}
         </div>
@@ -131,7 +131,7 @@ function App() {
         <Skills />
         <Experience />
         <SyncSimulator />
-        <ArchitectureVisualizer />
+        <ConsoleUtilitySimulator />
         <Contact />
       </main>
 
@@ -263,7 +263,7 @@ if (typeof window !== 'undefined') {
         display: block !important;
       }
       #sync > div > div[style*="grid-template-columns"],
-      #architecture > div > div[style*="grid-template-columns"],
+      #console-tools > div > div[style*="grid-template-columns"],
       #contact > div > div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
       }
